@@ -239,5 +239,17 @@ namespace DatesAndStuff.Tests
             // Assert
             Assert.AreEqual("2026-02-26T00:00:00", result);
         }
+
+        [Test]
+        public void SimulationTime_Min_ReturnsSmallestValue()
+        {
+            var t1 = new SimulationTime(2026, 2, 26);
+            var t2 = new SimulationTime(2025, 1, 1);
+            var t3 = new SimulationTime(2030, 1, 1);
+
+            var result = SimulationTime.Min(t1, t2, t3);
+
+            Assert.AreEqual(t2, result);
+        }
     }
 }
